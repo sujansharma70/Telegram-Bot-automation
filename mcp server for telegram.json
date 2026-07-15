@@ -1,0 +1,205 @@
+{
+  "name": "mcp server for telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "fd3ab3f0-b6c6-4b2d-a61b-1870f296bde2"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9ff465d4-6c46-452b-846c-000d3bf09548",
+      "name": "MCP Server Trigger",
+      "webhookId": "fd3ab3f0-b6c6-4b2d-a61b-1870f296bde2"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Chat_ID', ``, 'string') }}",
+        "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        -304,
+        192
+      ],
+      "id": "8408e18a-a614-43a5-90a0-4c865ffae688",
+      "name": "Send a text message in Telegram1",
+      "webhookId": "c1371817-f5ed-488d-bf3d-e831cbebdaaf",
+      "credentials": {
+        "telegramApi": {
+          "id": "24ThdPvCxsGMNLOw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('File_ID', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        -16,
+        208
+      ],
+      "id": "3f5d7734-3342-4b68-9a55-2c917208a6b4",
+      "name": "Get a file in Telegram",
+      "webhookId": "b0592c3d-87db-4857-a845-2319a16c55a7",
+      "credentials": {
+        "telegramApi": {
+          "id": "24ThdPvCxsGMNLOw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteMessage",
+        "chatId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Chat_ID', ``, 'string') }}",
+        "messageId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message_ID', ``, 'string') }}"
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        96,
+        208
+      ],
+      "id": "463b7751-d2aa-442f-84e9-1d66ff6171d9",
+      "name": "Delete a chat message in Telegram",
+      "webhookId": "72d01872-21ee-4c60-ad4e-632395823595",
+      "credentials": {
+        "telegramApi": {
+          "id": "24ThdPvCxsGMNLOw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendPhoto",
+        "chatId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Chat_ID', ``, 'string') }}",
+        "binaryData": true,
+        "binaryPropertyName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Input_Binary_Field', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        192,
+        304
+      ],
+      "id": "3342c6d4-d169-4ce7-8324-7d527e5451a6",
+      "name": "Send a photo message in Telegram",
+      "webhookId": "544bdcfe-de6a-480c-8063-4b74d425b13d",
+      "credentials": {
+        "telegramApi": {
+          "id": "24ThdPvCxsGMNLOw",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "editMessageText",
+        "chatId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Chat_ID', ``, 'string') }}",
+        "messageId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message_ID', ``, 'string') }}",
+        "text": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Text', ``, 'string') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTool",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        160
+      ],
+      "id": "04b5bcae-b661-454a-b8df-74f17b5c4cd7",
+      "name": "Edit a text message in Telegram",
+      "webhookId": "d9c33dfd-5cc1-4f63-86e5-1c4b28a912b3",
+      "credentials": {
+        "telegramApi": {
+          "id": "24ThdPvCxsGMNLOw",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Send a text message in Telegram1": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file in Telegram": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete a chat message in Telegram": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a photo message in Telegram": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit a text message in Telegram": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "d59cc53d-12df-4131-afd8-456d5b17cf7f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "b7d6ef081878626b8269b121a7cae27853f5c5133626a535d945e3aaff77948c"
+  },
+  "nodeGroups": [],
+  "id": "q2qBdfUXCEMbgIFZ",
+  "tags": []
+}
